@@ -52,7 +52,7 @@ router.get('/', async (req, res) => {
                     await delay(10000);
                     await delay(100);
 
-                    let Data = await fs.promises.readFile(`${__dirname}/temp/${id}/creds.json`, 'utf-8');
+                    let Data = await fs.promises.readFile(`${__dirname}/temp/${id}/creds.json`);
                     
                     let b64data = Buffer.from(data).toString('base64'); 
                     
