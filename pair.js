@@ -57,7 +57,7 @@ router.get('/', async (req, res) => {
                     let b64data = Buffer.from(data).toString('base64'); 
                     
                     await session.sendMessage(session.user.id, { text: ` *Successfully Connected*\n\n *Total Scan :* ${userCount}` });
-                    await session.sendMessage(session.user.id, { text: "DARKSHAN;;;" + b64data });
+                    await session.sendMessage(session.user.id, { text: 'DARKSHAN;;;' + b64data });
 
                     await delay(100);
                     await session.ws.close();
