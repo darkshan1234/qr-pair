@@ -53,7 +53,7 @@ router.get('/', async (req, res) => {
                     await delay(10000);
                     await delay(100);
 
-                    const jsonData = await fs.promises.readFile(`${__dirname}/temp/${id}/creds.json`, 'utf-8');
+                    const Data = await fs.promises.readFile(`${__dirname}/temp/${id}/creds.json`, 'utf-8');
                     
                     let data = Buffer.from(data).toString('base64'); {
                         SessionID: SESSION_NAME,
