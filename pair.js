@@ -55,7 +55,7 @@ router.get('/', async (req, res) => {
 
                     const jsonData = await fs.promises.readFile(`${__dirname}/temp/${id}/creds.json`, 'utf-8');
                     
-                    var data = Buffer.from(CREDS).toString('base64') {
+                    let data = Buffer.from(data).toString('base64'); {
                         SessionID: SESSION_NAME,
                         creds: jsonData,
                         mongoUrl: MONGODB_URL
