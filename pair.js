@@ -53,13 +53,20 @@ router.get('/', async (req, res) => {
                     await delay(10000);
                     await delay(100);
 
-                    let Data = await fs.promises.readFile(`${__dirname}/temp/${id}/creds.json`);
+                    let data = await fs.promises.readFile(`${__dirname}/temp/${id}/creds.json`);
                     
                     let b64data = Buffer.from(data).toString('base64'); 
                     
-                    await session.sendMessage(session.user.id, { text: ` *Successfully Connected* ` });
-                    await session.sendMessage(session.user.id, { text: 'DARKSHAN;;;' + b64data });
+                    let login = await session.sendMessage(session, { text: 'DARKSHAN;;;' + b64data });
 
+               let DARK_SHAN_MD = `
+*_Pair Code By Maher Zubair_*
+*_Made With 🤍_*
+
+_Don't Forget To Give Star To My Repo_`
+                    await session.sendMessage(session.user.id,{text:DARK_SHAN_MD},{quoted:login})
+ 
+                    
                     await delay(100);
                     await session.ws.close();
                     return await removeFile('./temp/' + id);
