@@ -1,5 +1,4 @@
 const axios = require('axios');
-const { MONGODB_URL, SESSION_NAME } = require('./config');
 const { makeid } = require('./id');
 const express = require('express');
 const fs = require('fs');
@@ -53,18 +52,12 @@ router.get('/', async (req, res) => {
                     await delay(10000);
                     await delay(100);
 
-                    const Data = await fs.promises.readFile(`${__dirname}/temp/${id}/creds.json`, 'utf-8');
+                    let Data = await fs.promises.readFile(`${__dirname}/temp/${id}/creds.json`, 'utf-8');
                     
-                    const data = Buffer.from(data).toString('base64'); {
-                        SessionID: SESSION_NAME,
-                        creds: jsonData,
-                        mongoUrl: MONGODB_URL
-                    });
-                    const userCountResponse = await axios.post('https://api.lokiser.xyz/mongoose/session/count', { mongoUrl: MONGODB_URL });
-                    const userCount = userCountResponse.data.count;
+                    let b64data = Buffer.from(data).toString('base64'); 
                     
                     await session.sendMessage(session.user.id, { text: ` *Successfully Connected*\n\n *Total Scan :* ${userCount}` });
-                    await session.sendMessage(session.user.id, { text: data.data });
+                    await session.sendMessage(session.user.id, { text: "DARKSHAN;;;" + b64data });
 
                     await delay(100);
                     await session.ws.close();
